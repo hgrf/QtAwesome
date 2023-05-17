@@ -21,6 +21,7 @@
 /// A list of all icon-names with the codepoint (unicode-value) on the right
 /// You can use the names on the page  http://fortawesome.github.io/Font-Awesome/design.html
 #include "QtAwesomeEnumGenerated.h"
+#include "QtAwesomeMdi6.h"
 
 namespace fa {
 
@@ -36,7 +37,8 @@ enum fa_styles {
     fa_sharp_regular = 7,
     fa_sharp_light = 8,
 #endif
-    fa_brands = 2
+    fa_brands = 2,
+    mdi6 = 9,
 };
 
 
@@ -80,6 +82,7 @@ public:
     static const QString FA_BRANDS_FONT_FILENAME; // fa-brands
     static const QString FA_REGULAR_FONT_FILENAME; // fa-regular
     static const QString FA_SOLID_FONT_FILENAME; // fa-solid
+    static const QString MDI6_FONT_FILENAME; // mdi6
     static const QFont::Weight FA_BRANDS_FONT_WEIGHT = QFont::Normal;
     static const QFont::Weight FA_REGULAR_FONT_WEIGHT = QFont::Normal;
     static const QFont::Weight FA_SOLID_FONT_WEIGHT = QFont::Black;

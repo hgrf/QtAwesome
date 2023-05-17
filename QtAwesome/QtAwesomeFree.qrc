@@ -3,5 +3,6 @@
         <file>fonts/Font Awesome 6 Brands-Regular-400.otf</file>
         <file>fonts/Font Awesome 6 Free-Regular-400.otf</file>
         <file>fonts/Font Awesome 6 Free-Solid-900.otf</file>
+        <file>fonts/materialdesignicons-webfont.ttf</file>
     </qresource>
 </RCC>

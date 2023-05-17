@@ -220,6 +220,7 @@ const QString QtAwesome::FA_SHARP_LIGHT_FONT_FILENAME = "pro/Font Awesome 6 Shar
 const QString QtAwesome::FA_REGULAR_FONT_FILENAME = "Font Awesome 6 Free-Regular-400.otf";
 const QString QtAwesome::FA_SOLID_FONT_FILENAME = "Font Awesome 6 Free-Solid-900.otf";
 #endif
+const QString QtAwesome::MDI6_FONT_FILENAME = "materialdesignicons-webfont.ttf";
 
 /// The default icon colors
 QtAwesome::QtAwesome(QObject* parent)
@@ -251,6 +252,7 @@ QtAwesome::QtAwesome(QObject* parent)
     _fontDetails.insert(fa::fa_solid, QtAwesomeFontData(FA_SOLID_FONT_FILENAME, FA_SOLID_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_regular, QtAwesomeFontData(FA_REGULAR_FONT_FILENAME, FA_REGULAR_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_brands, QtAwesomeFontData(FA_BRANDS_FONT_FILENAME, FA_BRANDS_FONT_WEIGHT));
+    _fontDetails.insert(fa::mdi6, QtAwesomeFontData(MDI6_FONT_FILENAME, FA_REGULAR_FONT_WEIGHT));
 #ifdef FONT_AWESOME_PRO
     _fontDetails.insert(fa::fa_light, QtAwesomeFontData(FA_LIGHT_FONT_FILENAME, FA_LIGHT_FONT_WEIGHT));
     _fontDetails.insert(fa::fa_duotone, QtAwesomeFontData(FA_DUOTONE_FONT_FILENAME, FA_DUOTONE_FONT_WEIGHT));
@@ -385,7 +387,7 @@ QIcon QtAwesome::icon(int style, int character, const QVariantMap &options)
 {
     // create a merged QVariantMap to have default options and icon-specific options
     QVariantMap optionMap = mergeOptions(_defaultOptions, options);
-    optionMap.insert("text", QString( QChar(character)) );
+    optionMap.insert("text", QString::fromStdU32String(std::u32string({static_cast<char32_t>(character)})));
     optionMap.insert("style", style);
 
     return icon( _fontIconPainter, optionMap );
